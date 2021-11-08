@@ -7,6 +7,8 @@ In this example, you'll see how to interact with [Microlink API](https://microli
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/crypto&project-name=crypto&repository-name=crypto)
 
+In case you already have a Next.js project and you want to interact with Microlink, just move `_middleware.js` inside a page to create a route, .e.g, `/pages/microlink/_middleware.js`, and then call `/microlink` to interact with your proxy.
+
 ## Environment Variables
 
 ### DOMAINS
