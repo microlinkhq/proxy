@@ -3,15 +3,37 @@
   <br><br>
 </div>
 
-In this example, you'll see how to interact with [Microlink API](https://microlink.io/docs/api/getting-started/overview) using a [Edge Function](https://vercel.com/edge).
+> Interact with Microlink API without exposing your credentials.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/examples/tree/main/edge-functions/crypto&project-name=crypto&repository-name=crypto)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fmicrolinkhq%2Fedge-proxy&env=API_KEY,ORIGINS)
 
-In case you already have a Next.js project and you want to interact with Microlink, just move `_middleware.js` inside a page to create a route, .e.g, `/pages/microlink/_middleware.js`, and then call `/microlink` to interact with your proxy.
+## Motivation
+
+Interacting directly with [Microlink API](https://microlink.io/docs/api/getting-started/overview) from frontend side is one of the most common scenarios.
+
+However, it could be a risk security scenario if you are exposing your [`x-api-key`](https://microlink.io/docs/api/api-basics/authentication), being possible that anyone can steal it and consume your API quota.
+
+For preventing that, this tiny microservice allows you interact with Microlink API without compromising your credentials.
+
+## Usage
+
+Deploy this service, setting up the necessaries environment variables.
+
+After that, every time you need to interact with Microlink API, just call the microservice URL instead.
+
+If you are using [`mql`](https://github.com/microlinkhq/mql), setup it as `endpoint` parameter:
+
+```js
+const mql = require('@microlink/mql')
+
+mql('https://microlink.io', {
+  endpoint: 'https://proxy.now.sh'
+})
+```
 
 ## Environment Variables
 
-### DOMAINS
+### ORIGINS
 
 *Required*</br>
 Type: `string`|`string[]`
@@ -36,7 +58,7 @@ The Microlink API endpoint used for sending the requests.
 
 ## License
 
-**microlink** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/proxy/blob/master/LICENSE.md) License.<br>
+**edge-proxy** © [Microlink](https://microlink.io), released under the [MIT](https://github.com/microlinkhq/proxy/blob/master/LICENSE.md) License.<br>
 Authored and maintained by [Kiko Beats](https://kikobeats.com) with help from [contributors](https://github.com/microlinkhq/proxy/contributors).
 
 > [microlink.io](https://microlink.io) · GitHub [microlinkhq](https://github.com/microlinkhq) · Twitter [@microlinkhq](https://twitter.com/microlinkhq)

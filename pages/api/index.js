@@ -1,17 +1,21 @@
 /* global fetch, Response */
 
+export const config = {
+  runtime: 'experimental-edge'
+}
+
 const NODE_ENV = process.env.NODE_ENV
 const API_ENDPOINT = process.env.API_ENDPOINT || 'https://pro.microlink.io'
 const API_KEY = process.env.API_KEY
 
-const allowedDomains = process.env.DOMAINS.split(',').map(n => n.trim())
+const origins = process.env.ORIGINS.split(',').map(n => n.trim())
 const isProduction = NODE_ENV === 'production'
 
 const isAllowedDomain = isProduction
-  ? origin => allowedDomains.includes(origin)
+  ? origin => origins.includes(origin)
   : () => true
 
-export default async function middleware (request) {
+export default async request => {
   const url = request.nextUrl
   const origin = request.headers.get('origin')
 
