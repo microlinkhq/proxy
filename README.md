@@ -27,7 +27,7 @@ If you are using [`mql`](https://github.com/microlinkhq/mql), setup it as `endpo
 const mql = require('@microlink/mql')
 
 mql('https://microlink.io', {
-  endpoint: 'https://proxy.now.sh'
+  endpoint: 'https://edge-proxy.microlink.io'
 })
 ```
 
