@@ -11,9 +11,10 @@ const API_KEY = process.env.API_KEY
 const origins = process.env.ORIGINS.split(',').map(n => n.trim())
 const isProduction = NODE_ENV === 'production'
 
-const isAllowedDomain = isProduction
-  ? origin => origins.includes(origin)
-  : () => true
+const isAllowedDomain =
+  isProduction && origins.length > 0
+    ? origin => origins.includes(origin)
+    : () => true
 
 export default async request => {
   const url = request.nextUrl
