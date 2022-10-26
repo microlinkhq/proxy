@@ -8,11 +8,12 @@ const NODE_ENV = process.env.NODE_ENV
 const API_ENDPOINT = process.env.API_ENDPOINT || 'https://pro.microlink.io'
 const API_KEY = process.env.API_KEY
 
-const origins = process.env.ORIGINS.split(',').map(n => n.trim())
+const origins = process.env.ORIGINS?.split(',').map(n => n.trim())
+
 const isProduction = NODE_ENV === 'production'
 
 const isAllowedDomain =
-  isProduction && origins.length > 0
+  isProduction && Array.isArray(origins)
     ? origin => origins.includes(origin)
     : () => true
 
