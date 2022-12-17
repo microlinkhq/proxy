@@ -1,8 +1,16 @@
 {
-  "builds": [
+  "routes": [
     {
-      "src": "package.json",
-      "use": "@vercel/next"
+      "src": "/robots.txt",
+      "status": 204
+    },
+    {
+      "src": "/favicon.ico",
+      "dest": "https://cdn.microlink.io/logo/trim.png"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.js"
     }
   ]
 }
