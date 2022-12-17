@@ -25,10 +25,7 @@
     "proxy"
   ],
   "dependencies": {
-    "@microlink/mql": "~0.10.28",
-    "next": "~13.0.0",
-    "react": "~18.2.0",
-    "react-dom": "~18.2.0"
+    "@microlink/mql": "~0.10.28"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
@@ -51,11 +48,9 @@
     "src"
   ],
   "scripts": {
-    "build": "next build",
     "clean": "rm -rf node_modules",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
-    "dev": "TZ=UTC NODE_ENV=development DEBUG=microlink* next dev",
-    "lint": "standard-markdown README.md && standard && next lint",
+    "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github",
     "prerelease": "npm run update:check && npm run contributors",
     "pretest": "npm run lint",

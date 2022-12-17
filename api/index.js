@@ -12,13 +12,17 @@ const origins = process.env.ORIGINS?.split(',').map(n => n.trim())
 
 const isProduction = NODE_ENV === 'production'
 
+const baseUrl = ({ headers }) =>
+  `${headers.get('x-forwarded-proto')}://${headers.get('x-forwarded-host')}`
+
 const isAllowedDomain =
   isProduction && Array.isArray(origins)
     ? origin => origins.includes(origin)
     : () => true
 
 export default async request => {
-  const url = request.nextUrl
+  const url = new URL(request.url, baseUrl(request))
+
   const origin = request.headers.get('origin')
 
   if (request.method === 'OPTIONS') {
