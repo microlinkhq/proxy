@@ -1,7 +1,7 @@
 /* global fetch, Response */
 
 export const config = {
-  runtime: 'experimental-edge'
+  runtime: 'edge'
 }
 
 const NODE_ENV = process.env.NODE_ENV
@@ -46,8 +46,8 @@ export default async request => {
 
   return fetch(`${API_ENDPOINT}?${url.searchParams.toString()}`, {
     headers: {
-      'x-api-key': API_KEY,
-      accept: request.headers.get('accept')
+      ...request.headers,
+      'x-api-key': API_KEY
     }
   })
 }
