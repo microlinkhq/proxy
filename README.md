@@ -1,5 +1,6 @@
 <div align="center">
-  <img src="https://cdn.microlink.io/banner/proxy.png" alt="microlink">
+  <img src="https://github.com/microlinkhq/cdn/raw/master/dist/banner/proxy.png#gh-light-mode-only" alt="microlink logo">
+  <img src="https://github.com/microlinkhq/cdn/raw/master/dist/banner/proxy-dark.png#gh-dark-mode-only" alt="microlink logo">
   <br><br>
 </div>
 
