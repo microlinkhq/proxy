@@ -25,7 +25,7 @@
     "proxy"
   ],
   "dependencies": {
-    "@microlink/mql": "~0.12.1"
+    "@microlink/mql": "~0.13.4"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
